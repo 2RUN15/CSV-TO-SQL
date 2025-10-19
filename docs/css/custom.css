@@ -1,0 +1,239 @@
+/* === NOTE === */
+.admonition.note {
+    background-color: #fff9c4; /* Hafif sarı */
+    border-left: 4px solid #fdd835; /* Kalın sarı çizgi */
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+}
+.admonition.note p {
+    color: black;
+    margin-top: 0.5em;
+}
+
+/* === WARNING === */
+.admonition.warning {
+    background-color: #ffecec; /* Açık pembe arka plan */
+    border: 2px solid #d9534f; /* Kırmızı kenarlık */
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: #555555;
+    position: relative;
+    margin: 10px 0;
+}
+.admonition.warning p {
+    color: #555555;
+    margin-top: 0.5em;
+}
+.admonition.warning::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #d9534f;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* === ERROR === */
+.admonition.error {
+    --admonition-color: #e54848;
+    --admonition-bg: #fff5f5;
+    --admonition-border: #e54848;
+    --admonition-icon: "⚡";
+
+    border-left: 4px solid var(--admonition-border);
+    background-color: var(--admonition-bg);
+    color: #2e2e2e;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(229, 72, 72, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+.admonition.error:hover {
+    box-shadow: 0 4px 10px rgba(229, 72, 72, 0.25);
+}
+.admonition.error .admonition-title {
+    color: var(--admonition-border);
+    font-weight: 700;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.admonition.error .admonition-title::before {
+    content: var(--admonition-icon);
+    font-size: 1.2em;
+}
+.admonition.error p {
+    margin-top: 6px;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #2e2e2e;
+}
+
+/* === EXAMPLE === */
+.admonition.example {
+    --example-color: #1e88e5;
+    --example-bg: #f3f9ff;
+    --example-border: #42a5f5;
+
+    border-left: 6px solid var(--example-border);
+    background-color: var(--example-bg);
+    color: #1f1f1f;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 6px rgba(66, 165, 245, 0.12);
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.admonition.example:hover {
+    box-shadow: 0 5px 12px rgba(66, 165, 245, 0.25);
+    transform: translateY(-1px);
+}
+.admonition.example .admonition-title {
+    color: var(--example-color);
+    font-weight: 700;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 0 1px rgba(66, 165, 245, 0.3);
+}
+.admonition.example .admonition-title::before {
+    content: "💡";
+    font-size: 1.3em;
+    color: var(--example-color);
+}
+.admonition.example p {
+    margin-top: 8px;
+    font-size: 0.96em;
+    line-height: 1.65;
+    color: #222;
+    font-weight: 500;
+}
+[data-theme="dark"] .admonition.example {
+    --example-bg: #202b36;
+    background-color: var(--example-bg);
+    color: #eaf3ff;
+    box-shadow: 0 2px 6px rgba(66, 165, 245, 0.25);
+}
+[data-theme="dark"] .admonition.example .admonition-title {
+    color: #70b8ff;
+    text-shadow: 0 0 2px rgba(100, 181, 246, 0.5);
+}
+[data-theme="dark"] .admonition.example p {
+    color: #f5f9ff;
+}
+
+/* === SUCCESS === */
+.admonition.success {
+    --success-color: #2e7d32;
+    --success-bg: #f6fff8;
+    --success-border: #4caf50;
+
+    border-left: 6px solid var(--success-border);
+    background-color: var(--success-bg);
+    color: #1b1b1b;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 6px rgba(76, 175, 80, 0.1);
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.admonition.success:hover {
+    box-shadow: 0 5px 12px rgba(76, 175, 80, 0.25);
+    transform: translateY(-1px);
+}
+.admonition.success .admonition-title {
+    color: var(--success-border);
+    font-weight: 700;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 0 1px rgba(76, 175, 80, 0.3);
+}
+.admonition.success .admonition-title::before {
+    content: "✅";
+    font-size: 1.2em;
+    color: var(--success-border);
+}
+.admonition.success p {
+    margin-top: 8px;
+    font-size: 0.96em;
+    line-height: 1.65;
+    color: #242424;
+    font-weight: 500;
+}
+[data-theme="dark"] .admonition.success {
+    --success-bg: #1c2a1d;
+    background-color: var(--success-bg);
+    color: #eaffea;
+    box-shadow: 0 2px 6px rgba(76, 175, 80, 0.25);
+}
+[data-theme="dark"] .admonition.success .admonition-title {
+    color: #81c784;
+    text-shadow: 0 0 2px rgba(129, 199, 132, 0.5);
+}
+[data-theme="dark"] .admonition.success .admonition-title::before {
+    color: #81c784;
+}
+[data-theme="dark"] .admonition.success p {
+    color: #f0fff0;
+}
+
+/* === QUESTION === */
+.admonition.question {
+    --question-color: #5e35b1;
+    --question-bg: #f9f7ff;
+    --question-border: #7e57c2;
+
+    border-left: 6px solid var(--question-border);
+    background-color: var(--question-bg);
+    color: #1f1f1f;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 6px rgba(126, 87, 194, 0.12);
+    transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.admonition.question:hover {
+    box-shadow: 0 5px 12px rgba(126, 87, 194, 0.25);
+    transform: translateY(-1px);
+}
+.admonition.question .admonition-title {
+    color: var(--question-border);
+    font-weight: 700;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 0 1px rgba(126, 87, 194, 0.3);
+}
+.admonition.question .admonition-title::before {
+    content: "❓";
+    font-size: 1.3em;
+    color: var(--question-border);
+}
+.admonition.question p {
+    margin-top: 8px;
+    font-size: 0.96em;
+    line-height: 1.65;
+    color: #2a2a2a;
+    font-weight: 500;
+}
+[data-theme="dark"] .admonition.question {
+    --question-bg: #231b2f;
+    background-color: var(--question-bg);
+    color: #f1eaff;
+    box-shadow: 0 2px 6px rgba(126, 87, 194, 0.25);
+}
+[data-theme="dark"] .admonition.question .admonition-title {
+    color: #b388ff;
+    text-shadow: 0 0 2px rgba(179, 136, 255, 0.5);
+}
+[data-theme="dark"] .admonition.question .admonition-title::before {
+    color: #b388ff;
+}
+[data-theme="dark"] .admonition.question p {
+    color: #f8f3ff;
+}
