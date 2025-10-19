@@ -32,3 +32,5 @@ Sanal ortamınızı aktive ettikten sonra, kütüphaneleri `pip` kullanarak doğ
 
 ```bash
 pip install PyQt6 mysql-connector-python
+```
+
