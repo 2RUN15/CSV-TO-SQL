@@ -57,7 +57,7 @@ source venv/bin/activate
 ### Windows İçin Aktive Etme
 
 ```bash
-\venv\Scripts\activate
+.\venv\Scripts\activate
 ```
 
 ### Gerekli Kütüphanelerin Kurulması
