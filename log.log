@@ -1125,3 +1125,17 @@ mysql.connector.errors.ProgrammingError: 1060 (42S21): Duplicate column name 'is
 2025-10-18 17:27:03,184 - DEBUG - Bir dosya seçildi --> 
 2025-10-18 17:27:04,953 - DEBUG - Programdan çıkış yapıldı
 
+2025-10-20 16:08:48,280 - DEBUG - Program başlatıldı
+2025-10-20 16:10:22,144 - DEBUG - Bir dosya seçildi --> 
+2025-10-20 16:10:31,010 - DEBUG - Programdan çıkış yapıldı
+
+2025-10-20 16:12:23,965 - DEBUG - Program başlatıldı
+2025-10-20 16:13:07,871 - DEBUG - Bir dosya seçildi --> /Users/tuakpina/Projects/PythonProjects/PyQt6/CsvToSql/rastgele_veri.csv
+2025-10-20 16:26:55,018 - DEBUG - Çalıştır butonuna basıldı
+2025-10-20 16:26:56,840 - DEBUG - add_column
+2025-10-20 16:26:58,043 - DEBUG - insert_user
+2025-10-20 16:27:17,901 - DEBUG - Çalıştır butonuna basıldı
+2025-10-20 16:27:19,018 - DEBUG - add_column
+2025-10-20 16:27:20,105 - DEBUG - insert_user
+2025-10-20 16:39:50,444 - DEBUG - Programdan çıkış yapıldı
+
