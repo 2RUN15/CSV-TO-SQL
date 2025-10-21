@@ -7,8 +7,10 @@ from logla import log_al
 log = log_al("logal")
 
 class create_table(connectdb):
-    def __init__(self,table_name,column):
+    def __init__(self,table_name,column,json_path):
         super().__init__()
+
+        self.exec(json_path)
         self.cursor = self.conn.cursor()
         self.table_name = table_name
         self.column = column

@@ -45,9 +45,9 @@ class chos_csv:
         self.json_error = dialogs.json_error()
 
     def exec(self):
-        self.parent.csvchos.exec()
-        self.csv_path = self.parent.csvchos.csv_path
 
+        self.csv_path = self.parent.csvchos.exec()
+        
         try:
             if self.csv_path:
                 with open(self.csv_path) as f:

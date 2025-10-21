@@ -12,9 +12,10 @@ class file_chos:
             "Dosya Seçiniz",
             "",
             "CSV Dosyası (*.csv);;Tüm Dosyalar (*)"
-        )        
+        )
+        return self.path
 
-class csv_chos:
+class json_chos:
     def __init__(self, parent):
         super().__init__()
         self.parent = parent
@@ -23,9 +24,10 @@ class csv_chos:
         self.csv_path,_ = QFileDialog.getOpenFileName(
             self.parent,
             "Dosya seçiniz",
-            ""
+            "",
             "JSON Dosyası (*.json);;Tüm Dosyalar (*)"
         )
+        return self.csv_path
 
 class csv_chos_folder:
     def __init__(self,parent):

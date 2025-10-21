@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
         
         #Dialogs
         self.filechos = dialogs.file_chos(self.dialog)
-        self.csvchos = dialogs.csv_chos(self.dialog)
+        self.csvchos = dialogs.json_chos(self.dialog)
 
         #MessageBox
         self.warning_msg = dialogs.warning_run()
@@ -61,7 +61,7 @@ class MainWindow(QMainWindow):
             if self.csv_path and self.localtext and self.databasetext and self.usernametext and self.dbpasswordtext and self.tablenametext:
                 self.result = convert(self.csv_path)
                 self.result.exec()
-                create_table(self.tablenametext,self.result.df)
+                create_table(self.tablenametext,self.result.df,self.chos_csv.csv_path)
             else:
                 log.debug("Kullanıcı değerleri girmeden çalıştır butonuna bastı")
                 self.warning_msg.exec()
@@ -70,8 +70,7 @@ class MainWindow(QMainWindow):
 
     def file_chos(self):
         try:
-            self.filechos.exec()
-            self.csv_path = self.filechos.path
+            self.csv_path = self.filechos.exec()
             self.ui.file_line_2.setText(self.csv_path)
             log.debug(f"Bir dosya seçildi --> {self.csv_path}")
         except Exception as e:
