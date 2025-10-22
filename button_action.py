@@ -37,7 +37,7 @@ class save_csv:
         with open (self.save_csv_folder,"w", encoding="utf-8") as f:
             json.dump(config_json,f,ensure_ascii=False, indent=4)
 
-class chos_csv:
+class chos_jsv:
     def __init__(self,parent,ui_parent):
         self.parent = parent
         self.ui = ui_parent
@@ -45,9 +45,7 @@ class chos_csv:
         self.json_error = dialogs.json_error()
 
     def exec(self):
-
         self.csv_path = self.parent.csvchos.exec()
-        
         try:
             if self.csv_path:
                 with open(self.csv_path) as f:

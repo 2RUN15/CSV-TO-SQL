@@ -36,12 +36,12 @@ class MainWindow(QMainWindow):
     
         #Button Actions Class
         self.save_csv = button_action.save_csv(self)
-        self.chos_csv = button_action.chos_csv(self,self.ui)
+        self.chos_jsv = button_action.chos_jsv(self,self.ui)
 
         #Button Actions
         self.ui.file_push_2.clicked.connect(self.file_chos)
         self.ui.json_save.clicked.connect(self.save_csv.exec)
-        self.ui.json_chose.clicked.connect(self.chos_csv.exec)
+        self.ui.json_chose.clicked.connect(self.chos_jsv.exec)
         self.ui.run_buton.clicked.connect(self.run_button)
 
         #Line Actions
@@ -61,7 +61,7 @@ class MainWindow(QMainWindow):
             if self.csv_path and self.localtext and self.databasetext and self.usernametext and self.dbpasswordtext and self.tablenametext:
                 self.result = convert(self.csv_path)
                 self.result.exec()
-                create_table(self.tablenametext,self.result.df,self.chos_csv.csv_path)
+                create_table(self.tablenametext,self.result.df,self.chos_jsv.csv_path)
             else:
                 log.debug("Kullanıcı değerleri girmeden çalıştır butonuna bastı")
                 self.warning_msg.exec()
