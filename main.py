@@ -55,13 +55,16 @@ class MainWindow(QMainWindow):
         self.ui.crt_table.stateChanged.connect(self.table_index_changed)
         self.ui.crt_db.stateChanged.connect(self.db_index_changed)
 
+        #QInstall
+        qInstallMessageHandler(self.qt_messsage_handler)
+
     def run_button(self):
         try:
             log.debug("Çalıştır butonuna basıldı")
             if self.csv_path and self.localtext and self.databasetext and self.usernametext and self.dbpasswordtext and self.tablenametext:
                 self.result = convert(self.csv_path)
                 self.result.exec()
-                self.create_table = create_table(self.tablenametext,self.result.df,self.chos_jsv.csv_path,self.tableindex)
+                self.create_table = create_table(self.tablenametext,self.result.df,self.chos_jsv.csv_path,self.tableindex,self.ui   )
                 self.create_table.exec()
             else:
                 log.debug("Kullanıcı değerleri girmeden çalıştır butonuna bastı")
@@ -101,7 +104,9 @@ class MainWindow(QMainWindow):
     def closeEvent(self, a0):
         log.debug("Programdan çıkış yapıldı\n")
         return super().closeEvent(a0)
-
+    
+    def qt_messsage_handler(self, mode, context, message):
+        pass
 if __name__ == "__main__":
     log.debug("Program başlatıldı")
     app = QApplication(sys.argv)

@@ -32,8 +32,21 @@
        <x>10</x>
        <y>30</y>
        <width>291</width>
-       <height>21</height>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #1e1e1e;       /* VSCode tarzı koyu gri */
+color: #dcdcdc;                  /* Açık gri metin */
+font-size: 13px;
+border: 1px solid #3a3a3a;
+border-radius: 6px;
+padding: 6px;
+selection-background-color: #264f78; /* Mavi seçim */
+</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
      <property name="readOnly">
       <bool>true</bool>
@@ -45,11 +58,21 @@
     <widget class="QPushButton" name="file_push_2">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>27</y>
+       <x>312</x>
+       <y>30</y>
        <width>100</width>
-       <height>27</height>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(73, 140, 209);
+color: #dcdcdc;                  /* Açık gri metin */
+font-size: 13px;
+border: 1px solid #3a3a3a;
+border-radius: 6px;
+padding: 6px;
+selection-background-color: #264f78; /* Mavi seçim */
+</string>
      </property>
      <property name="text">
       <string>Dosya Seç</string>
@@ -73,11 +96,31 @@
       <rect>
        <x>220</x>
        <y>30</y>
-       <width>113</width>
+       <width>111</width>
        <height>21</height>
       </rect>
      </property>
+     <property name="cursor">
+      <cursorShape>IBeamCursor</cursorShape>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">    background-color: #2b2b2b;
+    color: #f1f1f1;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */
+    font-family: &quot;SF Mono&quot;, Consolas, &quot;Courier New&quot;, monospace;
+    font-size: 12.5px;           /* 👈 biraz küçültüldü */
+    height: 22px;                /* 👈 sabit yükseklikle hizalı */
+    selection-background-color: #4a90e2;</string>
+     </property>
      <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
       <string>localhost</string>
      </property>
     </widget>
@@ -89,6 +132,17 @@
        <width>113</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">    background-color: #2b2b2b;
+    color: #f1f1f1;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */
+    font-family: &quot;SF Mono&quot;, Consolas, &quot;Courier New&quot;, monospace;
+    font-size: 12.5px;           /* 👈 biraz küçültüldü */
+    height: 22px;                /* 👈 sabit yükseklikle hizalı */
+    selection-background-color: #4a90e2;</string>
      </property>
      <property name="text">
       <string/>
@@ -106,7 +160,21 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">    background-color: #2b2b2b;
+    color: #f1f1f1;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */
+    font-family: &quot;SF Mono&quot;, Consolas, &quot;Courier New&quot;, monospace;
+    font-size: 12.5px;           /* 👈 biraz küçültüldü */
+    height: 22px;                /* 👈 sabit yükseklikle hizalı */
+    selection-background-color: #4a90e2;</string>
+     </property>
      <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
       <string>root</string>
      </property>
     </widget>
@@ -118,6 +186,17 @@
        <width>113</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">    background-color: #2b2b2b;
+    color: #f1f1f1;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */
+    font-family: &quot;SF Mono&quot;, Consolas, &quot;Courier New&quot;, monospace;
+    font-size: 12.5px;           /* 👈 biraz küçültüldü */
+    height: 22px;                /* 👈 sabit yükseklikle hizalı */
+    selection-background-color: #4a90e2;</string>
      </property>
      <property name="text">
       <string/>
@@ -229,6 +308,16 @@
        <height>30</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(73, 140, 209);
+color: #dcdcdc;                  /* Açık gri metin */
+font-size: 13px;
+border: 1px solid #3a3a3a;
+border-radius: 6px;
+padding: 6px;
+selection-background-color: #264f78; /* Mavi seçim */
+</string>
+     </property>
      <property name="text">
       <string>KAYDET</string>
      </property>
@@ -241,6 +330,16 @@
        <width>150</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(73, 140, 209);
+color: #dcdcdc;                  /* Açık gri metin */
+font-size: 13px;
+border: 1px solid #3a3a3a;
+border-radius: 6px;
+padding: 6px;
+selection-background-color: #264f78; /* Mavi seçim */
+</string>
      </property>
      <property name="text">
       <string>DOSYA SEÇ</string>
@@ -267,6 +366,16 @@
        <width>342</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">    background-color: #2b2b2b;
+    color: #f1f1f1;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */
+    font-size: 12.5px;           /* 👈 biraz küçültüldü */
+    height: 22px;                /* 👈 sabit yükseklikle hizalı */
+    selection-background-color: #4a90e2;</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_10">
@@ -327,27 +436,24 @@ border-radius: 12px;</string>
      <string>ÇALIŞTIR</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>12</x>
-      <y>576</y>
-      <width>71</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Log kaydı:</string>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="log_text">
     <property name="geometry">
      <rect>
       <x>12</x>
-      <y>600</y>
+      <y>590</y>
       <width>482</width>
-      <height>91</height>
+      <height>101</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #1e1e1e;       /* VSCode tarzı koyu gri */
+color: #dcdcdc;                  /* Açık gri metin */
+font-size: 13px;
+border: 1px solid #3a3a3a;
+border-radius: 6px;
+padding: 6px;
+selection-background-color: #264f78; /* Mavi seçim */
+</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>

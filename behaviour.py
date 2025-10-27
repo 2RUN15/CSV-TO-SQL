@@ -4,15 +4,17 @@ from convert import convert
 import numpy as np
 from logla import log_al
 import dialogs
+from PyQt6 import QtWidgets
 
 log = log_al("logal")
 
 class create_table(connectdb):
-    def __init__(self,table_name,column,json_path,table_index):
+    def __init__(self,table_name,column,json_path,table_index,ui):
         super().__init__()
 
         self.login(json_path)
         self.cursor = self.conn.cursor()
+        self.ui = ui
         self.table_name = table_name
         self.column = column
         self.table_index = table_index
@@ -21,7 +23,9 @@ class create_table(connectdb):
         self.liste = []
 
         #Dialogs
-        self.table_error = dialogs.table_error(self.table_name,self)
+        self.table_warning = dialogs.table_warning(self.table_name, self)
+        self.table_error = dialogs.table_error(self.table_name, self)
+        self.table_success = dialogs.table_success(self)
 
         #Values
         self.int_value = "INT"
@@ -31,18 +35,27 @@ class create_table(connectdb):
     
     def exec(self):
         try:
+            self.cursor.execute("SHOW TABLES")
+            for i in self.cursor.fetchall():
+                self.liste.append(i[0])
+
             if self.table_index !=0:
-                self.cursor.execute("SHOW TABLES")
-                for i in self.cursor.fetchall():
-                    self.liste.append(i[0])
-                
                 if self.table_name not in self.liste:
                     self.add_column()
                     self.insert_user()
+                else:
+                    result = self.table_warning.exec()
+                    if result == QtWidgets.QMessageBox.StandardButton.Yes:
+                        self.insert_user()
             else:
-                self.insert_user()
+                result = self.table_warning.exec()
+                if result == QtWidgets.QMessageBox.StandardButton.Yes:
+                    self.insert_user()
+            self.ui.log_text.append("Veriler Eklendi")
         except Exception as e:
             log.error(f"{e}",exc_info=True)
+        else:
+            self.table_success.exec()
     
         self.conn.commit()
         self.cursor.close()
@@ -57,6 +70,7 @@ CREATE TABLE {self.table_name} (
 """)
         try:
             for i in self.column.columns:
+                self.ui.log_text.append(f"{i} -- column eklendi")
                 self.column_type = type(self.column[i].iloc[0])
                 if self.column_type == np.int64:
                     self.cursor.execute(f"ALTER TABLE {self.table_name} ADD COLUMN {i} {self.int_value}")
@@ -67,6 +81,7 @@ CREATE TABLE {self.table_name} (
                 elif self.column_type == np.bool:
                     self.cursor.execute(f"ALTER TABLE {self.table_name} ADD COLUMN {i} {self.bool_value}")
         except Exception as e:
+            self.ui.log_text.append("HATA (Detaylar için log.log dosyasını kontrol et)")
             log.error(f"add_column_function: {e}",exc_info=True)
     
     def insert_user(self):
@@ -77,7 +92,7 @@ CREATE TABLE {self.table_name} (
             yer_tutucu = ", ".join(['%s'] * column_len)
 
             sql_insert = f"INSERT INTO {self.table_name} ({birlestir}) VALUES ({yer_tutucu}) "
-
+            self.ui.log_text.append("Veriler Ekleniyor...")
             for _,row in self.column.iterrows():
                 values = tuple(row)
                 self.cursor.execute(sql_insert,values)
