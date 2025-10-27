@@ -5,7 +5,7 @@ class connectdb:
     def __init__(self):
         super().__init__()
 
-    def exec(self,json_path):
+    def login(self,json_path):
         with open (json_path) as f:
             config = json.load(f)
 

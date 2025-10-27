@@ -59,3 +59,13 @@ class warning_run(QMessageBox):
         self.setText("CSV dosya yolunu ve mysql connector bilgilerini giriniz!")
         self.setStandardButtons(QMessageBox.StandardButton.Ok)
         self.setIcon(self.Icon.Warning)
+
+class table_error(QMessageBox):
+    def __init__(self, name, parent):
+        super().__init__()
+        
+        self.setParent = parent
+        self.setWindowTitle("UYARI!!!")
+        self.setText(f"VERİ TABANINDA {name} ADINDA BİR TABLO VAR!")
+        self.setStandardButtons(self.StandardButton.Ok)
+        self.setIcon(self.Icon.Critical)

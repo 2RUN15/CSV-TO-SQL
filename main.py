@@ -61,7 +61,8 @@ class MainWindow(QMainWindow):
             if self.csv_path and self.localtext and self.databasetext and self.usernametext and self.dbpasswordtext and self.tablenametext:
                 self.result = convert(self.csv_path)
                 self.result.exec()
-                create_table(self.tablenametext,self.result.df,self.chos_jsv.csv_path)
+                self.create_table = create_table(self.tablenametext,self.result.df,self.chos_jsv.csv_path,self.tableindex)
+                self.create_table.exec()
             else:
                 log.debug("Kullanıcı değerleri girmeden çalıştır butonuna bastı")
                 self.warning_msg.exec()

@@ -3,46 +3,58 @@ from logindb import connectdb
 from convert import convert
 import numpy as np
 from logla import log_al
+import dialogs
 
 log = log_al("logal")
 
 class create_table(connectdb):
-    def __init__(self,table_name,column,json_path):
+    def __init__(self,table_name,column,json_path,table_index):
         super().__init__()
 
-        self.exec(json_path)
+        self.login(json_path)
         self.cursor = self.conn.cursor()
         self.table_name = table_name
         self.column = column
+        self.table_index = table_index
         self.table_list = []
         self.column_list = []
         self.liste = []
+
+        #Dialogs
+        self.table_error = dialogs.table_error(self.table_name,self)
 
         #Values
         self.int_value = "INT"
         self.varchar = "VARCHAR(255)"
         self.float_value = "FLOAT"
         self.bool_value = "BOOL"
-
-        self.cursor.execute("SHOW TABLES")
-        for table in self.cursor:
-            self.table_list.append(table)
-        
-        if table_name  not in self.table_list:
-            self.cursor.execute(f"""
-CREATE TABLE IF NOT EXISTS {table_name} (
-    id INT AUTO_INCREMENT PRIMARY KEY
-)
-""")
-
-            self.add_column()
-            self.insert_user()
+    
+    def exec(self):
+        try:
+            if self.table_index !=0:
+                self.cursor.execute("SHOW TABLES")
+                for i in self.cursor.fetchall():
+                    self.liste.append(i[0])
+                
+                if self.table_name not in self.liste:
+                    self.add_column()
+                    self.insert_user()
+            else:
+                self.insert_user()
+        except Exception as e:
+            log.error(f"{e}",exc_info=True)
+    
         self.conn.commit()
         self.cursor.close()
         self.conn.close()
-    
+
     def add_column(self):
         log.debug("add_column")
+        self.cursor.execute(f"""
+CREATE TABLE {self.table_name} (
+    id INT AUTO_INCREMENT PRIMARY KEY
+)
+""")
         try:
             for i in self.column.columns:
                 self.column_type = type(self.column[i].iloc[0])
@@ -70,4 +82,5 @@ CREATE TABLE IF NOT EXISTS {table_name} (
                 values = tuple(row)
                 self.cursor.execute(sql_insert,values)
         except Exception as e:
+            self.table_error.exec()
             log.error(f"insert_user: {e}",exc_info=True)
