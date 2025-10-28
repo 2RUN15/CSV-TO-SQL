@@ -20,27 +20,11 @@ class Ui_MainWindow(object):
         self.data_group.setObjectName("data_group")
         self.file_line_2 = QtWidgets.QLineEdit(parent=self.data_group)
         self.file_line_2.setGeometry(QtCore.QRect(10, 30, 291, 31))
-        self.file_line_2.setStyleSheet("background-color: #1e1e1e;       /* VSCode tarzı koyu gri */\n"
-"color: #dcdcdc;                  /* Açık gri metin */\n"
-"font-size: 13px;\n"
-"border: 1px solid #3a3a3a;\n"
-"border-radius: 6px;\n"
-"padding: 6px;\n"
-"selection-background-color: #264f78; /* Mavi seçim */\n"
-"")
         self.file_line_2.setText("")
         self.file_line_2.setReadOnly(True)
         self.file_line_2.setObjectName("file_line_2")
         self.file_push_2 = QtWidgets.QPushButton(parent=self.data_group)
         self.file_push_2.setGeometry(QtCore.QRect(312, 30, 100, 31))
-        self.file_push_2.setStyleSheet("background-color: rgb(73, 140, 209);\n"
-"color: #dcdcdc;                  /* Açık gri metin */\n"
-"font-size: 13px;\n"
-"border: 1px solid #3a3a3a;\n"
-"border-radius: 6px;\n"
-"padding: 6px;\n"
-"selection-background-color: #264f78; /* Mavi seçim */\n"
-"")
         self.file_push_2.setObjectName("file_push_2")
         self.mysql_group = QtWidgets.QGroupBox(parent=self.centralwidget)
         self.mysql_group.setGeometry(QtCore.QRect(12, 120, 476, 173))
@@ -49,54 +33,18 @@ class Ui_MainWindow(object):
         self.localhost.setGeometry(QtCore.QRect(220, 30, 111, 21))
         self.localhost.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.IBeamCursor))
         self.localhost.setWhatsThis("")
-        self.localhost.setStyleSheet("    background-color: #2b2b2b;\n"
-"    color: #f1f1f1;\n"
-"    border: 1px solid #444;\n"
-"    border-radius: 5px;\n"
-"    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */\n"
-"    font-family: \"SF Mono\", Consolas, \"Courier New\", monospace;\n"
-"    font-size: 12.5px;           /* 👈 biraz küçültüldü */\n"
-"    height: 22px;                /* 👈 sabit yükseklikle hizalı */\n"
-"    selection-background-color: #4a90e2;")
         self.localhost.setText("")
         self.localhost.setObjectName("localhost")
         self.databasedb = QtWidgets.QLineEdit(parent=self.mysql_group)
         self.databasedb.setGeometry(QtCore.QRect(220, 60, 113, 21))
-        self.databasedb.setStyleSheet("    background-color: #2b2b2b;\n"
-"    color: #f1f1f1;\n"
-"    border: 1px solid #444;\n"
-"    border-radius: 5px;\n"
-"    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */\n"
-"    font-family: \"SF Mono\", Consolas, \"Courier New\", monospace;\n"
-"    font-size: 12.5px;           /* 👈 biraz küçültüldü */\n"
-"    height: 22px;                /* 👈 sabit yükseklikle hizalı */\n"
-"    selection-background-color: #4a90e2;")
         self.databasedb.setText("")
         self.databasedb.setObjectName("databasedb")
         self.user_name = QtWidgets.QLineEdit(parent=self.mysql_group)
         self.user_name.setGeometry(QtCore.QRect(220, 90, 113, 21))
-        self.user_name.setStyleSheet("    background-color: #2b2b2b;\n"
-"    color: #f1f1f1;\n"
-"    border: 1px solid #444;\n"
-"    border-radius: 5px;\n"
-"    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */\n"
-"    font-family: \"SF Mono\", Consolas, \"Courier New\", monospace;\n"
-"    font-size: 12.5px;           /* 👈 biraz küçültüldü */\n"
-"    height: 22px;                /* 👈 sabit yükseklikle hizalı */\n"
-"    selection-background-color: #4a90e2;")
         self.user_name.setText("")
         self.user_name.setObjectName("user_name")
         self.db_password = QtWidgets.QLineEdit(parent=self.mysql_group)
         self.db_password.setGeometry(QtCore.QRect(220, 120, 113, 21))
-        self.db_password.setStyleSheet("    background-color: #2b2b2b;\n"
-"    color: #f1f1f1;\n"
-"    border: 1px solid #444;\n"
-"    border-radius: 5px;\n"
-"    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */\n"
-"    font-family: \"SF Mono\", Consolas, \"Courier New\", monospace;\n"
-"    font-size: 12.5px;           /* 👈 biraz küçültüldü */\n"
-"    height: 22px;                /* 👈 sabit yükseklikle hizalı */\n"
-"    selection-background-color: #4a90e2;")
         self.db_password.setText("")
         self.db_password.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.db_password.setDragEnabled(False)
@@ -124,39 +72,15 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName("label_9")
         self.json_save = QtWidgets.QPushButton(parent=self.mysql_ls_group)
         self.json_save.setGeometry(QtCore.QRect(280, 25, 150, 30))
-        self.json_save.setStyleSheet("background-color: rgb(73, 140, 209);\n"
-"color: #dcdcdc;                  /* Açık gri metin */\n"
-"font-size: 13px;\n"
-"border: 1px solid #3a3a3a;\n"
-"border-radius: 6px;\n"
-"padding: 6px;\n"
-"selection-background-color: #264f78; /* Mavi seçim */\n"
-"")
         self.json_save.setObjectName("json_save")
         self.json_chose = QtWidgets.QPushButton(parent=self.mysql_ls_group)
         self.json_chose.setGeometry(QtCore.QRect(280, 65, 150, 31))
-        self.json_chose.setStyleSheet("background-color: rgb(73, 140, 209);\n"
-"color: #dcdcdc;                  /* Açık gri metin */\n"
-"font-size: 13px;\n"
-"border: 1px solid #3a3a3a;\n"
-"border-radius: 6px;\n"
-"padding: 6px;\n"
-"selection-background-color: #264f78; /* Mavi seçim */\n"
-"")
         self.json_chose.setObjectName("json_chose")
         self.table_config_group = QtWidgets.QGroupBox(parent=self.centralwidget)
         self.table_config_group.setGeometry(QtCore.QRect(12, 450, 476, 101))
         self.table_config_group.setObjectName("table_config_group")
         self.table_name = QtWidgets.QLineEdit(parent=self.table_config_group)
         self.table_name.setGeometry(QtCore.QRect(120, 28, 342, 21))
-        self.table_name.setStyleSheet("    background-color: #2b2b2b;\n"
-"    color: #f1f1f1;\n"
-"    border: 1px solid #444;\n"
-"    border-radius: 5px;\n"
-"    padding: 4px 6px;            /* 👈 azaldı: metin tam oturur */\n"
-"    font-size: 12.5px;           /* 👈 biraz küçültüldü */\n"
-"    height: 22px;                /* 👈 sabit yükseklikle hizalı */\n"
-"    selection-background-color: #4a90e2;")
         self.table_name.setObjectName("table_name")
         self.label_10 = QtWidgets.QLabel(parent=self.table_config_group)
         self.label_10.setGeometry(QtCore.QRect(10, 30, 101, 16))
@@ -169,20 +93,9 @@ class Ui_MainWindow(object):
         self.crt_db.setObjectName("crt_db")
         self.run_buton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.run_buton.setGeometry(QtCore.QRect(12, 550, 481, 31))
-        self.run_buton.setStyleSheet("background-color: rgb(87, 255, 142 );\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 12px;")
         self.run_buton.setObjectName("run_buton")
         self.log_text = QtWidgets.QTextEdit(parent=self.centralwidget)
         self.log_text.setGeometry(QtCore.QRect(12, 590, 482, 101))
-        self.log_text.setStyleSheet("background-color: #1e1e1e;       /* VSCode tarzı koyu gri */\n"
-"color: #dcdcdc;                  /* Açık gri metin */\n"
-"font-size: 13px;\n"
-"border: 1px solid #3a3a3a;\n"
-"border-radius: 6px;\n"
-"padding: 6px;\n"
-"selection-background-color: #264f78; /* Mavi seçim */\n"
-"")
         self.log_text.setReadOnly(True)
         self.log_text.setObjectName("log_text")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -199,7 +112,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "CSV TO SQL"))
         self.data_group.setTitle(_translate("MainWindow", "1. Veri seçme"))
         self.file_line_2.setPlaceholderText(_translate("MainWindow", "CSV veya EXEL dosyasını seçiniz"))
         self.file_push_2.setText(_translate("MainWindow", "Dosya Seç"))

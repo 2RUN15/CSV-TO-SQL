@@ -108,8 +108,11 @@ class MainWindow(QMainWindow):
     def qt_messsage_handler(self, mode, context, message):
         pass
 if __name__ == "__main__":
+    with open("style.css","r") as c:
+        style = c.read()
     log.debug("Program başlatıldı")
     app = QApplication(sys.argv)
     window = MainWindow()
+    window.setStyleSheet(style)
     window.show()
     sys.exit(app.exec())

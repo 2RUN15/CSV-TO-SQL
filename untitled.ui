@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>CSV TO SQL</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="data_group">
