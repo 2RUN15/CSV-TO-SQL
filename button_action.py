@@ -2,6 +2,13 @@ from PyQt6.QtWidgets import *
 import json
 import dialogs
 import os
+from PyQt6.QtCore import QThread, pyqtSignal
+from logla import log_al
+from convert import convert
+from package_values import behaviour_config
+from behaviour import create_table
+
+log = log_al("logla")
 
 class save_csv:
     def __init__(self,parent):
@@ -62,3 +69,39 @@ class chos_jsv:
                 self.ui.db_password.setText(self.dbpasswordtext)
         except:
             self.json_error.exec()
+
+class run_buton:
+    def __init__(self, conf: behaviour_config):
+        self.conf = conf
+        self.ui = self.conf.ui
+
+        #Dialogs
+        self.table_success = dialogs.table_success(self)        
+
+    def run_button(self):
+        self.ui.log_text.clear()
+        self.threads = QThread()
+        try:
+                self.worker = create_table(self.conf)
+                self.worker.moveToThread(self.threads)
+
+                self.threads.started.connect(self.worker.exec)
+                self.worker.finished.connect(self.finished)
+                self.worker.add_column_sgn.connect(lambda sgn: self.ui.log_text.append(f"{sgn} -- column eklendi"))
+                self.worker.log_text_sgn.connect(lambda text: self.ui.log_text.append(text))
+
+                self.worker.finished.connect(self.threads.quit)
+                self.worker.finished.connect(self.worker.deleteLater)
+                self.threads.finished.connect(self.threads.deleteLater)
+
+                self.threads.start()
+
+                self.ui.run_buton.setEnabled(False)
+
+        except Exception as e:
+            log.error(f"run_buton: {e}",exc_info=True)
+    
+    def finished(self, code):
+        if code == 1:
+            self.table_success.exec()
+            self.ui.run_buton.setEnabled(True)

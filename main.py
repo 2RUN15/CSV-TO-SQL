@@ -1,4 +1,4 @@
-import sys , json
+import sys
 from PyQt6.QtCore import *
 from PyQt6.QtGui import *
 from PyQt6.QtWidgets import * # UI'yi import ettik
@@ -6,8 +6,7 @@ from frontend import Ui_MainWindow
 import dialogs, button_action
 from convert import convert
 from logla import log_al
-from behaviour import create_table
-import threading
+from package_values import behaviour_config
 
 log = log_al("logla")
 
@@ -18,20 +17,9 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.dialog = QWidget()
 
-        #None Value
-        self.localtext = ""
-        self.csv_path = ""
-        self.databasetext = ""
-        self.usernametext = ""
-        self.dbpasswordtext = ""
-        self.tablenametext = ""
-        self.tableindex = 0
-        self.dbindex = 0
-        
         #Dialogs
         self.filechos = dialogs.file_chos(self.dialog)
         self.csvchos = dialogs.json_chos(self.dialog)
-        self.table_success = dialogs.table_success(self)
 
         #MessageBoxx
         self.warning_msg = dialogs.warning_run()
@@ -57,41 +45,43 @@ class MainWindow(QMainWindow):
         self.ui.crt_table.stateChanged.connect(self.table_index_changed)
         self.ui.crt_db.stateChanged.connect(self.db_index_changed)
 
+        #None Value
+        self.localtext = ""
+        self.csv_path = ""
+        self.databasetext = ""
+        self.usernametext = ""
+        self.dbpasswordtext = ""
+        self.tablenametext = ""
+        self.tableindex = 0
+        self.dbindex = 0
+        self.chos_jsv.csv_path = ""
+
         #QInstall
         qInstallMessageHandler(self.qt_messsage_handler)
 
     def run_button(self):
-        self.ui.log_text.clear()
-        self.threads = QThread()
-        try:
             log.debug("Çalıştır butonuna basıldı")
             if self.csv_path and self.localtext and self.databasetext and self.usernametext and self.dbpasswordtext and self.tablenametext:
                 self.result = convert(self.csv_path)
-                self.result.exec()
-                self.worker = create_table(self.tablenametext,self.result.df,self.chos_jsv.csv_path,self.tableindex,self.ui)
-                self.worker.moveToThread(self.threads)
+                self.result.exec()               
 
-                self.threads.started.connect(self.worker.exec)
-                self.worker.finished.connect(self.finished)
+                self.behaviour_config = behaviour_config(
+                    table_name = self.tablenametext,
+                    column = self.result.df,
+                    json_path = self.chos_jsv.csv_path,
+                    table_index = self.tableindex,
+                    ui=self.ui,
+                    localtext = self.localtext,
+                    databasedbtext = self.databasetext,
+                    usernametext = self.usernametext,
+                    dbpasswordtext = self.dbpasswordtext
+                )
 
-                self.worker.finished.connect(self.threads.quit)
-                self.worker.finished.connect(self.worker.deleteLater)
-                self.threads.finished.connect(self.threads.deleteLater)
-
-                self.threads.start()
-
-                self.ui.run_buton.setEnabled(False)
-
+                exec = button_action.run_buton(self.behaviour_config)
+                exec.run_button()                
             else:
                 log.debug("Kullanıcı değerleri girmeden çalıştır butonuna bastı")
-                self.warning_msg.exec()
-        except Exception as e:
-            log.error(f"run_buton: {e}",exc_info=True)
-
-    def finished(self, code):
-        if code == 1:
-            self.table_success.exec()
-            self.ui.run_buton.setEnabled(True)
+                self.warning_msg.exec()                
 
     def file_chos(self):
         try:
@@ -128,6 +118,7 @@ class MainWindow(QMainWindow):
     
     def qt_messsage_handler(self, mode, context, message):
         pass
+    
 if __name__ == "__main__":
     with open("style.css","r") as c:
         style = c.read()
