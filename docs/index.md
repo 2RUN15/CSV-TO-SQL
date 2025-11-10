@@ -147,11 +147,7 @@ Burada görmüş olduğunuz gibi veriler aktarılmış oldu. Sadece bir kısmın
 
 MySQL bilgilerini kaydetmek için kullandığınız buton; `KAYDET` şu anda çalışmamaktadır.
 
-`Tablo yoksa oluştur` ve `Veri tabanını yeniden oluştur` seçenekleri şu anda çalışmamaktadır. 
-
-Program arka planda bir dosyada log alır ama arayüze log kayıtlarını aktarmamaktadır.
-
-Bağlantıda sorunlar yaşayabilirsiniz.
+`Tablo yoksa oluştur` seçeneği şu anda çalışmamaktadır. 
 
 Program büyük veri setlerinde yavaş kalacaktır.
 
@@ -160,5 +156,3 @@ Program büyük veri setlerinde yavaş kalacaktır.
 Burada ki bütün sorunlar çözülebilir ancak hız sorunun çözülmesi biraz zaman alacaktır. Dosya işlemleri için C/C++ ile hız artışı sağlanacaktır.
 
 Yapay Zeka entegrasyonu ile özellikle büyük veri setlerinde gelen verinin hangi tür olduğunu daha iyi kavrayacak. 
-
-
