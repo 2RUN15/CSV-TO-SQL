@@ -1,0 +1,16 @@
+# mkdocs.yml
+
+site_name: Projemin Harika Dokümantasyonu
+
+theme:
+  name: material
+
+# Özel CSS dosyamızı buraya ekliyoruz:
+extra_css:
+  - css/custom.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - attr_list
+  

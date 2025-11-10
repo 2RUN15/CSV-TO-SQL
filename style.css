@@ -1,0 +1,58 @@
+#file_line_2 {
+    background-color: #1e1e1e;
+    color: #dcdcdc;                 
+    font-size: 13px;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+#table_name {
+    background-color: #2b2b2b;
+    color: #f1f1f1;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 4px 4px;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+}
+
+#file_push_2,
+#json_save,
+#json_chose {
+    background-color: rgb(73, 140, 209);
+    color: #dcdcdc;                
+    font-size: 13px;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+#localhost,
+#databasedb,
+#user_name,
+#db_password {
+    background-color: #2b2b2b;
+    color: #f1f1f1;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 4px 6px;
+    font-family: \"SF Mono\", Consolas, \"Courier New\", monospace;
+    font-size: 12.5px;
+    height: 22px;
+}
+
+#run_buton {
+    background-color: rgb(87, 255, 142 );
+    color: rgb(0, 0, 0);
+    border-radius: 12px;
+}
+
+#log_text {
+    background-color: #1e1e1e;
+    color: #dcdcdc;     
+    font-size: 13px;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    padding: 6px;
+}

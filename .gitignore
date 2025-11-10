@@ -1,0 +1,7 @@
+*.json
+.DS_Store
+log.log
+*.csv
+*.numbers
+*.ui
+untitled.ui
