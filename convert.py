@@ -10,4 +10,3 @@ class convert:
     
     def exec(self):
         self.df = pd.read_csv(self.file_path, encoding="utf-8",delimiter=";")
-        

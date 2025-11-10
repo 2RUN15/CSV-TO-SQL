@@ -95,11 +95,10 @@ CREATE TABLE {self.config.table_name} (
             birlestir = ", ".join(self.config.column.columns)
             column_len = len(self.config.column.columns)
             yer_tutucu = ", ".join(['%s'] * column_len)
+            data_list = [tuple(row) for row in self.config.column.itertuples(index = False)]
 
             sql_insert = f"INSERT INTO {self.config.table_name} ({birlestir}) VALUES ({yer_tutucu}) "
             self.log_text_sgn.emit(str("Veriler Ekleniyor..."))
-            for _,row in self.config.column.iterrows():
-                values = tuple(row)
-                self.cursor.execute(sql_insert,values)
+            self.cursor.executemany(sql_insert, data_list)
         except Exception as e:
             log.error(f"insert_user: {e}",exc_info=True)

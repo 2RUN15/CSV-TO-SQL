@@ -149,10 +149,6 @@ MySQL bilgilerini kaydetmek için kullandığınız buton; `KAYDET` şu anda ça
 
 `Tablo yoksa oluştur` seçeneği şu anda çalışmamaktadır. 
 
-Program büyük veri setlerinde yavaş kalacaktır.
-
 ## Sorunların Giderilmesi
-
-Burada ki bütün sorunlar çözülebilir ancak hız sorunun çözülmesi biraz zaman alacaktır. Dosya işlemleri için C/C++ ile hız artışı sağlanacaktır.
 
 Yapay Zeka entegrasyonu ile özellikle büyük veri setlerinde gelen verinin hangi tür olduğunu daha iyi kavrayacak. 
